@@ -1,55 +1,54 @@
 # Customer Shopping Behavior Analysis
 
-## Project Overview
+## End-to-End Data Analytics Project using Python, MySQL, and Power BI
 
-This project analyzes customer shopping behavior using transactional retail data from 3,900 purchases across multiple product categories.
+This project analyzes customer shopping behavior using transactional retail data to uncover insights related to customer spending patterns, product preferences, subscriptions, discounts, and revenue trends.
 
-The objective was to uncover insights related to:
+The project demonstrates a complete end-to-end analytics workflow including:
 
-* customer spending patterns
-* product preferences
-* subscription behavior
-* discount dependency
-* customer segmentation
-* revenue trends
-
-The project follows a complete end-to-end data analytics workflow including:
-
-* data cleaning in Python
-* SQL business analysis
-* data visualization in Power BI
-* business recommendations
+* Data Cleaning & Preprocessing
+* Exploratory Data Analysis (EDA)
+* SQL Business Analysis
+* Database Integration
+* Power BI Dashboarding
+* Business Recommendations
 
 ---
 
-## Business Problem
+# Project Overview
 
-Retail businesses generate large amounts of customer transaction data, but extracting meaningful insights from this data is essential for improving:
+Retail businesses generate large amounts of customer transaction data. This project focuses on analyzing shopping behavior across 3,900 customer transactions to identify:
 
+* High-value customer segments
+* Revenue-driving demographics
+* Product performance
+* Discount dependency
+* Customer loyalty patterns
+* Subscription behavior
+
+The insights generated can help businesses improve:
+
+* marketing strategies
 * customer retention
-* product strategy
-* marketing effectiveness
-* revenue growth
-
-This project focuses on identifying:
-
-* high-value customer segments
-* top-performing products
-* discount-driven purchasing behavior
-* subscription impact on revenue
+* sales optimization
+* product positioning
 
 ---
 
-## Dataset Information
+# Dataset Information
 
-* Total Transactions: 3,900
-* Total Columns: 18
-* Missing Values: 37 values in review_rating
-* Dataset Type: Retail Transactional Data
+| Metric             | Value                     |
+| ------------------ | ------------------------- |
+| Total Transactions | 3,900                     |
+| Total Columns      | 18                        |
+| Missing Values     | 37                        |
+| Dataset Type       | Retail Transactional Data |
 
-### Features Included
+---
 
-#### Customer Information
+# Dataset Features
+
+## Customer Information
 
 * customer_id
 * age
@@ -57,186 +56,204 @@ This project focuses on identifying:
 * location
 * subscription_status
 
-#### Purchase Information
+## Purchase Information
 
 * item_purchased
 * category
 * purchase_amount
 * season
 * shipping_type
+* color
+* size
 
-#### Behavioral Features
+## Behavioral Features
 
 * discount_applied
+* previous_purchases
 * frequency_of_purchases
 * review_rating
-* previous_purchases
 
 ---
 
-## Tools & Technologies
+# Tech Stack
 
-| Tool       | Purpose                       |
-| ---------- | ----------------------------- |
-| Python     | Data cleaning & preprocessing |
-| Pandas     | Data manipulation             |
-| NumPy      | Numerical operations          |
-| MySQL      | Business analysis queries     |
-| SQLAlchemy | Python-MySQL integration      |
-| Power BI   | Dashboard creation            |
-| GitHub     | Project version control       |
+| Tool / Technology | Purpose                  |
+| ----------------- | ------------------------ |
+| Python            | Data Cleaning & Analysis |
+| Pandas            | Data Manipulation        |
+| NumPy             | Numerical Operations     |
+| MySQL             | SQL Business Analysis    |
+| SQLAlchemy        | Database Connection      |
+| Power BI          | Dashboard Development    |
+| Jupyter Notebook  | Exploratory Analysis     |
+| GitHub            | Project Hosting          |
 
 ---
 
-## Project Workflow
+# Project Workflow
 
-### 1. Data Cleaning & Preparation (Python)
+## 1. Data Cleaning & Preparation in Python
 
 Performed:
 
-* missing value handling
-* datatype validation
-* feature engineering
-* column standardization
-* data consistency checks
+* Missing value handling
+* Data consistency checks
+* Feature engineering
+* Column standardization
+* Data preprocessing
 
 ### Key Transformations
 
-* Imputed missing review ratings using category median
-* Created age_group feature
-* Created purchase_frequency_days feature
+* Imputed missing values in `review_rating`
 * Converted column names to snake_case
+* Created `age_group` feature
+* Created purchase frequency metrics
 * Removed redundant columns
 
 ---
 
-## Database Integration
+## 2. Database Integration
 
-The cleaned dataset was loaded into MySQL using SQLAlchemy for further business analysis.
+Connected Python with MySQL using SQLAlchemy and loaded the cleaned dataset into the database for SQL analysis.
 
-### Python Libraries Used
+### Libraries Used
 
 ```python
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
+from urllib.parse import quote_plus
 ```
 
 ---
 
-## SQL Business Analysis
+# SQL Business Analysis
 
-The following business questions were analyzed:
+The following business questions were analyzed using SQL:
 
-### Revenue Analysis
+## Revenue Analysis
 
-* Revenue generated by gender
-* Revenue by age group
+* Revenue generated by male vs female customers
+* Revenue contribution by age groups
 * Revenue by subscription status
 
-### Customer Behavior Analysis
-
-* High-spending discount users
-* Repeat buyers vs subscribers
-* Customer segmentation
-
-### Product Analysis
+## Product Analysis
 
 * Top-rated products
 * Most purchased products
 * Top 3 products within each category
 * Discount-dependent products
 
-### Shipping & Purchase Insights
+## Customer Behavior Analysis
+
+* Customer segmentation
+* Repeat buyers vs subscribers
+* High-spending discount users
+
+## Operational Insights
 
 * Shipping type comparison
-* Average purchase analysis
+* Average purchase trends
 
 ---
 
-## Key Insights
+# Key Insights
 
-### Revenue Insights
+## Revenue Insights
 
-* Male customers generated significantly higher revenue than female customers.
-* Young adults contributed the highest total revenue.
+* Male customers generated significantly higher total revenue.
+* Young adults contributed the highest revenue among all age groups.
 
-### Product Insights
+## Product Insights
 
-* Gloves, Sandals, and Boots received the highest average ratings.
-* Certain products showed strong dependence on discounts for purchases.
+* Gloves, Sandals, and Boots had the highest average ratings.
+* Some products showed strong dependence on discounts for purchases.
 
-### Customer Insights
+## Customer Insights
 
-* Majority of customers belonged to the loyal customer segment.
-* Non-subscribers generated higher overall revenue due to larger customer volume.
+* Loyal customers formed the largest customer segment.
+* Non-subscribers generated higher total revenue because of larger customer volume.
 
-### Shipping Insights
+## Shipping Insights
 
-* Express shipping users showed slightly higher average spending behavior.
+* Customers using express shipping spent slightly more on average compared to standard shipping users.
 
 ---
 
-## Power BI Dashboard
+# Power BI Dashboard
 
 An interactive Power BI dashboard was created to visualize:
 
-* customer distribution
-* revenue trends
-* category-wise sales
-* subscription split
-* age-group revenue
-* sales by category
+* Revenue trends
+* Customer distribution
+* Category-wise sales
+* Subscription split
+* Sales by age group
+* Customer segmentation
 
 ### Dashboard Features
 
-* Interactive slicers
-* KPI cards
-* Revenue analysis charts
-* Customer segmentation visuals
+* KPI Cards
+* Interactive Filters
+* Revenue Analysis Charts
+* Sales Distribution Visuals
+* Subscription Insights
 
 ---
 
-## Business Recommendations
+# Dashboard Preview
 
-### Increase Subscription Adoption
+(Add your dashboard screenshot here)
 
-Promote exclusive benefits and targeted offers to improve subscriber conversion.
-
-### Strengthen Loyalty Programs
-
-Reward repeat customers to increase long-term retention.
-
-### Optimize Discount Strategy
-
-Reduce over-dependence on discounts while maintaining sales growth.
-
-### Improve Product Positioning
-
-Highlight highly-rated products in marketing campaigns.
-
-### Target High-Value Segments
-
-Focus marketing efforts on high-revenue age groups and frequent buyers.
-
----
-
-## Project Structure
-
-```bash
-customer-shopping-behavior-analysis/
-│
-├── customer_analysis.csv
-├── customer_analysis.ipynb
-├── README.md
-├── business_queries.sql
-├── dashboard.pbix
-└── project_report.pdf
+```markdown
+![Dashboard Preview](dashboard_preview.png)
 ```
 
 ---
 
-## Skills Demonstrated
+# Business Recommendations
+
+## Boost Subscription Adoption
+
+Promote exclusive subscriber benefits and targeted offers.
+
+## Strengthen Customer Loyalty
+
+Reward repeat buyers using loyalty programs and retention strategies.
+
+## Optimize Discount Strategy
+
+Reduce over-dependence on discounts while maintaining profitability.
+
+## Improve Product Positioning
+
+Highlight top-rated and best-selling products in marketing campaigns.
+
+## Target High-Value Customers
+
+Focus marketing efforts on high-revenue age groups and loyal customers.
+
+---
+
+# Repository Structure
+
+```bash
+customer-shopping-behavior-analysis/
+│
+├── customer_behavior_analysis.ipynb
+├── business_queries.sql
+├── customer_behavior_dashboard.pbix
+├── shopping_behavior_data.csv
+├── project_report.pdf
+├── project_presentation.pdf
+├── dashboard_preview.png
+├── README.md
+└── LICENSE
+```
+
+---
+
+# Skills Demonstrated
 
 * Data Cleaning
 * Exploratory Data Analysis
@@ -245,22 +262,24 @@ customer-shopping-behavior-analysis/
 * Feature Engineering
 * Dashboard Development
 * Data Storytelling
-* KPI Analysis
 * Database Integration
+* KPI Analysis
 
 ---
 
-## Future Improvements
+# Future Improvements
 
 * Customer churn prediction
-* Recommendation system
+* Product recommendation system
 * Sales forecasting
-* Advanced segmentation using machine learning
+* Advanced customer segmentation using machine learning
 
 ---
 
-## Author
+# Author
 
-Lakshmi Sahiti Varada
+## Lakshmi Sahiti Varada
 
 Aspiring Data Analyst | SQL | Python | Power BI | Business Analytics
+
+GitHub: https://github.com/lakshmisahitivarada
